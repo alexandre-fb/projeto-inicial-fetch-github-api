@@ -121,6 +121,34 @@ main {
   line-height: 23px;
 }
 
+/* FOLLOWERS AND FOLLOWING */
+
+.container .profile-data .followers-following {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.container .profile-data .followers-following .container-follow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container .profile-data .followers-following .container-follow .value {
+  border-radius: 100%;
+  background-color: rgb(1, 101, 231);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
 /* REPOSITORIES */
 
 .container .profile-data .repositories h2{

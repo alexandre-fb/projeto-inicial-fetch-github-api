@@ -2,13 +2,26 @@ const screen = {
     userProfile: document.querySelector('.profile-data'),
     renderInfo(user){
         this.userProfile.innerHTML = /*html*/ `
-        <section class="section info">
-            <img src="${user.avatarUrl}" alt="Foto do perfil do usuário"/>
-            <div class="data">
-                <h1>${user.name ?? "Não possui nome cadastrado 😢"}</h1>
-                <p>${user.bio ?? "Não possui bio cadastrada 😢"}</p>
-            </div>
-        </section>
+            <section class="section info">
+                <img src="${user.avatarUrl}" alt="Foto do perfil do usuário"/>
+                <div class="data">
+                    <h1>${user.name ?? "Não possui nome cadastrado 😢"}</h1>
+                    <p>${user.bio ?? "Não possui bio cadastrada 😢"}</p>
+                    <div class="followers-following">
+                        <div class="container-follow">
+                            <p>Seguidores</p>
+                            <span>👇</span>
+                            <p class="value">${user.followers}</p>
+                        </div>
+                        <div class="container-follow"> 
+                            <p>Seguindo</p>
+                            <span>👇</span>
+                            <p class="value">${user.following}</p>
+                        </div>
+                     </div>
+                </div>
+                
+            </section>
         `;
     },
     renderRepositories(user){
@@ -23,23 +36,25 @@ const screen = {
 
         if (user.repositories.length > 0) {
             this.userProfile.innerHTML += /*html*/`
-            <section class="section repositories">
-                <h2>Repositórios</h2>
-                <ul>
-                    ${userRepositoriesItems}
-                </ul>
-            </section>
-        ` 
+                <section class="section repositories">
+                    <h2>Repositórios</h2>
+                    <ul>
+                        ${userRepositoriesItems}
+                    </ul>
+                </section>
+            ` 
         } else {
             this.userProfile.innerHTML += "Não possui repositórios ainda!"
         } 
     },
+    
     renderNotFound(){
         this.userProfile.innerHTML = /*html*/`
             <h1>Usuário não existe.</h1>
         `
         return true;
     }
+    
 }
 
 export { screen }

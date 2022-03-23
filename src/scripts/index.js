@@ -4,21 +4,23 @@ import { getActivities } from './services/activities.js';
 import { user } from './objects/user.js';
 import { screen } from './objects/screen.js';
 
-document.getElementById('btn-search').addEventListener('click', () => {
+const btnSearch = document.getElementById('btn-search');
+const inputSearch = document.getElementById('input-search');
+
+btnSearch.addEventListener('click', () => {
     const userName = document.getElementById('input-search').value;
-    console.log(user.name);
     if (validateEmptyInput(userName)) return;
     getUserData(userName);
     
 });
 
-document.getElementById('input-search').addEventListener('keyup', (event) => {
+inputSearch.addEventListener('keyup', (event) => {
     const userName = event.target.value;
     const key = event.which || event.keyCode;
     const isEnterPressed = key === 13;
 
     if (isEnterPressed) {
-        if (validateEmptyInput(userName) === true) return;
+        if (validateEmptyInput(userName)) return;
         getUserData(userName);
     }
 });
@@ -28,7 +30,7 @@ function validateEmptyInput(userName) {
         alert("Preencha o campo com o nome do usuário!");
         return true;
     } 
-}
+};
 
 async function getUserData(userName) {
     const userResponse = await getUser(userName);
@@ -47,13 +49,5 @@ async function getUserData(userName) {
     screen.renderInfo(user);
     screen.renderRepositories(user);
     screen.renderActivities(user);
-
-    console.log(user.repositories[0].language)
-    console.log(user.repositories[0])
-
-   
-    
-    
-    
-}
+};
 

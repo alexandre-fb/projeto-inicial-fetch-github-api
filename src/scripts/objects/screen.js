@@ -69,7 +69,7 @@ const screen = {
             `
         })
 
-        if(user.activities.length != 0) {
+        if(user.activities.length > 0) {
             this.userProfile.innerHTML += /*html*/ `
                 <section class="section activities">
                     <h2 class="activities">Atividades recentes</h2>
@@ -86,11 +86,10 @@ const screen = {
     },
     renderNotFound(){
         this.userProfile.innerHTML = /*html*/`
-            <h1>Usuário não existe.</h1>
+            <h2>Usuário não existe.</h2>
         `
         return true;
     }
-    
 }
 
 export { screen }

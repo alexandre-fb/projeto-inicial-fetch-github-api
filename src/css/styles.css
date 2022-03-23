@@ -31,7 +31,7 @@ main {
 }
 
 .section{
-  padding: 70px 0;
+  margin: 0px;
 }
 
 .container {
@@ -98,6 +98,12 @@ main {
   align-items: center;
 }
 
+.section-divisor {
+  width: 80%;
+  border: 1px solid rgb(202, 202, 202);
+  margin: 100px auto 100px;
+}
+
 .container .profile-data .info .data{
   padding: 40px;
   width: 50%;
@@ -160,20 +166,31 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
-.container .profile-data .repositories ul li a{
-  padding: 20px;
-  border: 1px solid grey;  
+.container .profile-data .repositories ul .item{
+  padding: 20px;  
   margin: 20px;
   display: block;
   border-radius: 7px;
   transition: 0.3s ease-in-out;
+  border: 1px solid grey;
 }
 
-.container .profile-data .repositories ul li a:hover{
+.container .profile-data .repositories ul .item:hover{
   background-color:hotpink;
   color: #fff
+}
+
+.container .profile-data .repositories ul .item .stats{
+  padding: 10px;  
+  display: flex;
+  border-radius: 7px;
+  transition: 0.3s ease-in-out;
+  background-color: blueviolet;
+  color: #fff;
+  margin: 10px;
 }
 
 .container .profile-data.hide{
@@ -223,18 +240,15 @@ main {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   main {
     padding: 15% 0;    
-  }
-
-  .container .profile-data .info img{
-    margin-bottom: 20px;
   }
 
   .container .profile-data .info img,
   .container .profile-data .info .data
   {
+    margin-bottom: 20px;
     width: 100%;
     padding: 0;
   }

@@ -20,16 +20,25 @@ const screen = {
                         </div>
                      </div>
                 </div>
-                
             </section>
+            <div class="section-divisor"></div>
         `;
     },
     renderRepositories(user){
         let userRepositoriesItems = "";
         user.repositories.forEach((repositorie) => {
-            userRepositoriesItems += /*html*/`
-                <li>
-                    <a href="${repositorie}" target="_blank">${repositorie.name}</a>
+            if (repositorie.language == null) repositorie.language = "Sem linguagem"
+            userRepositoriesItems += 
+            /*html*/`
+                <li class="item">
+                    <a href="${repositorie.html_url}" target="_blank">${repositorie.name}
+                        <ul>
+                            <li class="stats">🍴${repositorie.forks_count}</li>   
+                            <li class="stats">⭐${repositorie.stargazers_count}</li>   
+                            <li class="stats">👀${repositorie.watchers_count}</li>   
+                            <li class="stats">👀${repositorie.language}</li>   
+                        </ul>
+                    </a>
                 </li>
              `;
         });
@@ -42,6 +51,7 @@ const screen = {
                         ${userRepositoriesItems}
                     </ul>
                 </section>
+                <div class="section-divisor"></div>
             ` 
         } else {
             this.userProfile.innerHTML += /*html*/ `

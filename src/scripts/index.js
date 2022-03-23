@@ -47,8 +47,12 @@ async function getUserData(userName) {
     screen.renderInfo(user);
     screen.renderRepositories(user);
     screen.renderActivities(user);
+
+    console.log(user.repositories[0].language)
+    console.log(user.repositories[0])
+
+   
     
-    console.log(user.activities[0]);
     
     
 }

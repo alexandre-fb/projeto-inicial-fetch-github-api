@@ -15,11 +15,11 @@ const user = {
         this.followers = gitHubUser.followers;
         this.following = gitHubUser.following;
     },
-    setActivities(gitHubUser){
-        this.activities = gitHubUser;
-    },
     setRepositories(gitHubUser) {
         this.repositories = gitHubUser;
+    },
+    setActivities(gitHubUser){
+        this.activities = gitHubUser;
     }
 }
 

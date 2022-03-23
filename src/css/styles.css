@@ -180,6 +180,24 @@ main {
   display: none;
 }
 
+/* ACTIVITIES */
+.container .profile-data .activities h2{
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.container .profile-data .activities li {
+  margin-bottom: 10px;
+}
+
+.container .profile-data .activities li a:hover {
+  text-decoration: underline;
+}
+
+.container .profile-data .activities li .type-of-activity {
+  font-weight: bold;
+}
+
 @media (max-width: 1280px) {
   .container {
     flex-direction: column;

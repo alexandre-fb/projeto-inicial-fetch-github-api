@@ -44,10 +44,36 @@ const screen = {
                 </section>
             ` 
         } else {
-            this.userProfile.innerHTML += "Não possui repositórios ainda!"
+            this.userProfile.innerHTML += /*html*/ `
+                <section class="section">
+                    <h3>Ainda não possui repositórios!</h3>
+                </section>
+            `
         } 
     },
-    
+    renderActivities(user){
+        let userActivitiesItems = "";
+        user.activities.forEach((activity) => {
+            userActivitiesItems += /*html*/`
+                <li><a href="https://github.com/${activity.repo.name}" target="_blank">${activity.repo.name}</a>: <span class="type-of-activity">${activity.type}</span></li>
+            `
+        })
+
+        if(user.activities.length != 0) {
+            this.userProfile.innerHTML += /*html*/ `
+                <section class="section activities">
+                    <h2 class="activities">Atividades recentes</h2>
+                    <ul>${userActivitiesItems}</ul>
+                </section>
+            `
+        } else {
+            this.userProfile.innerHTML += /*html*/ `
+                <section class="section">
+                    <h3>Ainda não possui atividades!</h3>
+                </section>
+            `
+        }
+    },
     renderNotFound(){
         this.userProfile.innerHTML = /*html*/`
             <h1>Usuário não existe.</h1>

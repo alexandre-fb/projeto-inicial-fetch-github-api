@@ -1,4 +1,5 @@
 const user = {
+    responseMessage: "",
     avatarUrl: "",
     name: "",
     bio: "",
@@ -8,6 +9,7 @@ const user = {
     activities: [],
     repositories: [],
     setInfo(gitHubUser) {
+        this.responseMessage = gitHubUser.message;
         this.avatarUrl = gitHubUser.avatar_url;
         this.name = gitHubUser.name;
         this.bio = gitHubUser.bio;

@@ -1,7 +1,7 @@
 const screen = {
-    userProfile: document.querySelector('.profile-data'),
-    renderInfo(user){
-        this.userProfile.innerHTML = /*html*/ `
+  userProfile: document.querySelector(".profile-data"),
+  renderInfo(user) {
+    this.userProfile.innerHTML = /*html*/ `
             <section class="section info">
                 <img src="${user.avatarUrl}" alt="Foto do perfil do usuário"/>
                 <div class="data">
@@ -23,13 +23,12 @@ const screen = {
             </section>
             <div class="section-divisor"></div>
         `;
-    },
-    renderRepositories(user){
-        let userRepositoriesItems = "";
-        user.repositories.forEach((repositorie) => {
-            if (repositorie.language == null) repositorie.language = "Sem linguagem"
-            userRepositoriesItems += 
-            /*html*/`
+  },
+  renderRepositories(user) {
+    let userRepositoriesItems = "";
+    user.repositories.forEach((repositorie) => {
+      if (repositorie.language == null) repositorie.language = "Sem linguagem";
+      userRepositoriesItems += /*html*/ `
                 <li class="item">
                     <a href="${repositorie.html_url}" target="_blank">${repositorie.name}
                         <ul>
@@ -41,10 +40,10 @@ const screen = {
                     </a>
                 </li>
              `;
-        });
+    });
 
-        if (user.repositories.length > 0) {
-            this.userProfile.innerHTML += /*html*/`
+    if (user.repositories.length > 0) {
+      this.userProfile.innerHTML += /*html*/ `
                 <section class="section repositories">
                     <h2>Repositórios</h2>
                     <ul>
@@ -52,44 +51,43 @@ const screen = {
                     </ul>
                 </section>
                 <div class="section-divisor"></div>
-            ` 
-        } else {
-            this.userProfile.innerHTML += /*html*/ `
+            `;
+    } else {
+      this.userProfile.innerHTML += /*html*/ `
                 <section class="section">
                     <h3>Ainda não possui repositórios!</h3>
                 </section>
-            `
-        } 
-    },
-    renderActivities(user){
-        let userActivitiesItems = "";
-        user.activities.forEach((activity) => {
-            userActivitiesItems += /*html*/`
+            `;
+    }
+  },
+  renderActivities(user) {
+    let userActivitiesItems = "";
+    user.activities.forEach((activity) => {
+      userActivitiesItems += /*html*/ `
                 <li><a href="https://github.com/${activity.repo.name}" target="_blank">${activity.repo.name}</a>: <span class="type-of-activity">${activity.type}</span></li>
-            `
-        })
+            `;
+    });
 
-        if(user.activities.length > 0) {
-            this.userProfile.innerHTML += /*html*/ `
+    if (user.activities.length > 0) {
+      this.userProfile.innerHTML += /*html*/ `
                 <section class="section activities">
                     <h2 class="activities">Atividades recentes</h2>
                     <ul>${userActivitiesItems}</ul>
                 </section>
-            `
-        } else {
-            this.userProfile.innerHTML += /*html*/ `
+            `;
+    } else {
+      this.userProfile.innerHTML += /*html*/ `
                 <section class="section">
                     <h3>Ainda não possui atividades!</h3>
                 </section>
-            `
-        }
-    },
-    renderNotFound(){
-        this.userProfile.innerHTML = /*html*/`
-            <h2>Usuário não existe.</h2>
-        `
-        return true;
+            `;
     }
-}
+  },
+  renderNotFound() {
+    this.userProfile.innerHTML = /*html*/ `
+            <h2>Usuário não existe.</h2>
+        `;
+  },
+};
 
-export { screen }
+export { screen };
